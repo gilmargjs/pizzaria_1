@@ -20,9 +20,11 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from pizzas.views import PizzasView, NewPizzas
+from accounts.views import register_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("register/", register_view, name="register"),
     path("pizzas/", PizzasView.as_view(), name="pizzas_list"),
     path("new_pizzas/", NewPizzas.as_view(), name="new_pizzas"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
